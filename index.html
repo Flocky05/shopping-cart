@@ -11,11 +11,11 @@
    <link href="style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark">
 
    <section>
       <div class="container">
-         <h2>My shopping cart</h2>
+         <h2 class="text-white text-center fw-bold pt-5">My shopping cart</h2>
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
@@ -27,11 +27,12 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="number" min="0" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="btn-phone-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phone-number-field" type="number" min="0" class="form-control text-center"
+                              value="1">
+                           <button id="btn-phone-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="phone-total">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -45,12 +46,13 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="btn-cart-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="case-number" type="number" min="0" class="form-control text-center" value="1">
-                           <button id="btn-card-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="btn-case-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-number-field" type="number" min="0" class="form-control text-center"
+                              value="1">
+                           <button id="btn-case-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$<span id="case-price">59</span></h5>
+                        <h5>$<span id="case-total">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -61,24 +63,60 @@
 
                      <div class="col-md-8">
                         <h5>Subtotal: </h5>
-                        <h5>Tax:</h5>
+                        <h5>Tax(10%):</h5>
                         <h5>Total:</h5>
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="sub-total">1278</span></h5>
+                        <h5>$<span id="tax-amount">127.8</span></h5>
+                        <h5>$<span id="final-total">1405.8</span></h5>
                      </div>
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <!-- Button trigger modal -->
+                  <div class="d-flex justify-content-between align-items-center">
+                     <img class="w-25" src="https://cdn.pixabay.com/photo/2017/09/26/19/58/discount-2789869_960_720.png" alt="">
+                     <button type="button" class="btn btn-danger mt-4 px-3 py-2 fw-semibold fs-4 h-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Check Out Now
+                     </button>
+                  </div>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Check out all</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                 aria-label="Close"></button>
+                           </div>
+                           <div class="modal-body">
+                              <h3>Total Price: $<span id="total-price">1405.8</span></h3>
+                              
+                              <input id="discount-field" class="form-control w-50 my-1" type="text" placeholder="type discount" aria-label="default input example">
+                              <button id="discount-btn" type="button" class="btn btn-success" disabled>Apply</button>
+
+                              <h3>Discount Price: <span id="discount-price"></span></h3>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       </div>
    </section>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+   <script src="js/total.js"></script>
+   <script src="js/phone.js"></script>
    <script src="js/case.js"></script>
 </body>
 
